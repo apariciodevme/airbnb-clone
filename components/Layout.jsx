@@ -5,9 +5,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Header />
       <main> {children}</main>
-    </>
+    </div>
   );
 }

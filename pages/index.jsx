@@ -16,7 +16,7 @@ export default function Home({ exploreData, cardsData }) {
       </Head>
       <div className="min-h-screen">
         <Banner />
-        <main className="px-8 mx-auto max-w-7xl sm:px-16">
+        <main className="px-8 mx-auto overflow-x-hidden max-w-7xl sm:px-16">
           <section className="pt-6">
             <Title text={"Explore Nearby"} />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
