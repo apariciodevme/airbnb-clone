@@ -4,6 +4,8 @@ import Head from "next/head";
 import SmallCard from "@/components/SmallCard";
 import Title from "@/components/Title";
 import MediumCard from "@/components/MediumCard";
+import LargeCard from "@/components/LargeCard";
+import Footer from "@/components/Footer";
 
 export default function Home({ exploreData, cardsData }) {
   return (
@@ -31,18 +33,21 @@ export default function Home({ exploreData, cardsData }) {
 
           <section>
             <Title text={"Live Anywhere"} />
-            <div className="flex space-x-3 overflow-scroll">
-              {cardsData?.map(({ img, title, location }) => (
-                <MediumCard
-                  key={location}
-                  img={img}
-                  title={title}
-                  location={location}
-                />
+            <div className="flex p-5 -ml-5 space-x-3 overflow-scroll rounded-xl scrollbar-hide">
+              {cardsData?.map(({ img, title }) => (
+                <MediumCard key={img} img={img} title={title} />
               ))}
             </div>
           </section>
+
+          <LargeCard 
+          img={"https://links.papareact.com/4cj"}
+          title={'The Greatest Outdoors'}
+          description={'Wishlists curated by Airbnb.'}
+          buttonText={'Get Inspired'}
+          />
         </main>
+        <Footer/>
       </div>
     </>
   );
