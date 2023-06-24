@@ -5,7 +5,6 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/router";
 
-
 import {
   MagnifyingGlassIcon,
   GlobeAltIcon,
@@ -14,12 +13,11 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 
-const Header = ({placeholder}) => {
+const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [numberGuests, setNumberGuests] = useState(1);
-
 
   const router = useRouter();
 
@@ -34,39 +32,47 @@ const Header = ({placeholder}) => {
     setEndDate(ranges.selection.endDate);
   };
 
-
   const resetInput = () => {
     setSearchInput("");
   };
 
   const search = () => {
     router.push({
-      pathname: '/search',
+      pathname: "/search",
       query: {
         location: searchInput,
         startDate: startDate.toISOString(),
         endDate: endDate.toISOString(),
         numberGuests,
-      }
-    })
-  }
+      },
+    });
+  };
 
   return (
     <header className="sticky top-0 z-50 grid justify-between grid-cols-2 p-4 shadow-md sm:grid-cols-3 bg-neutral-50">
       {/* left nav */}
-      <div className="relative items-center hidden h-8 my-auto cursor-pointer sm:inline-flex" onClick={() => router.push('/')}>
+      <div
+        className="relative items-center hidden h-8 my-auto cursor-pointer sm:inline-flex"
+        onClick={() => router.push("/")}
+      >
         <Image
           src={"https://links.papareact.com/qd3"}
           alt="airbnb logo image"
           fill
-          className="object-contain "
+          className="hidden object-contain md:inline-flex "
+        />
+        <Image
+          src={"/airbnb.png"}
+          alt="airbnb logo image"
+          fill
+          className="object-contain md:hidden "
         />
       </div>
 
       {/* Middle nav - Search bar */}
 
       <div className="flex items-center py-2 rounded-full md:border-2 md:shadow-sm ">
-      <MagnifyingGlassIcon className="w-5 h-5 text-gray-900 cursor-pointer md:hidden " />
+        <MagnifyingGlassIcon className="w-5 h-5 text-gray-900 cursor-pointer md:hidden " />
 
         <input
           value={searchInput}
@@ -82,7 +88,9 @@ const Header = ({placeholder}) => {
       {/* right nav */}
 
       <div className="flex items-center justify-end space-x-4 text-gray-900">
-        <p className="hidden text-sm font-medium lg:inline-flex">Airbnb your home</p>
+        <p className="hidden text-sm font-medium lg:inline-flex">
+          Airbnb your home
+        </p>
         <GlobeAltIcon className="w-6 h-6 cursor-pointer " />
 
         <div className="flex items-center p-2 space-x-2 border-2 rounded-full cursor-pointer">
@@ -98,7 +106,6 @@ const Header = ({placeholder}) => {
             minDate={new Date()}
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
-            
           />
 
           <div className="flex items-center px-6 mb-4 border-b">
@@ -118,7 +125,9 @@ const Header = ({placeholder}) => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-rose-500">Search</button>
+            <button onClick={search} className="flex-grow text-rose-500">
+              Search
+            </button>
           </div>
         </div>
       )}
