@@ -20,8 +20,8 @@ function Search({ searchResults }) {
             300+ Stays - <span className="text-rose-500">{range}</span> - for{" "}
             <span className="text-rose-500">{numberGuests}</span> guests
           </p>
-          <h1 className="mt-2 text-3xl font-semibold">Stays in {location}</h1>
-          <div className="hidden mb-5 space-x-3 text-gray-500 whitespace-nowrap lg:inline-flex">
+          <h1 className="py-6 mt-2 text-3xl font-semibold">Stays in {location}</h1>
+          <div className="inline-flex flex-wrap gap-3 mb-5 space-x-3 text-gray-500 md:flex-nowrap whitespace-nowrap">
             <p className="scaledButton">Cancelation flexibility</p>
             <p className="scaledButton">Type of place</p>
             <p className="scaledButton">Price</p>

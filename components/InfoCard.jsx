@@ -14,7 +14,7 @@ const InfoCard = ({
 }) => {
   return (
     <div className="flex px-2 pr-4 mt-10 transition duration-150 ease-out border-b cursor-pointer py-7 hover:opacity-80 hover:shadow-lg first:border-t">
-      <div className="relative flex-shrink-0 w-40 h-32 sm:h-48 sm:w-52 md:h-52 md:w-80">
+      <div className="relative flex-shrink-0 w-40 h-32 sm:h-44 sm:w-52 md:h-52 md:w-80">
         <Image src={img} fill className="rounded-xl object-cove" />
       </div>
 

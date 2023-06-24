@@ -96,10 +96,11 @@ const Header = ({placeholder}) => {
             minDate={new Date()}
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
+            
           />
 
-          <div className="flex items-center mb-4 border-b">
-            <h2 className="flex-grow text-2xl font-semibold">
+          <div className="flex items-center px-6 mb-4 border-b">
+            <h2 className="flex-grow py-6 text-2xl font-semibold">
               Number of guests
             </h2>
             <UsersIcon className="h-5" />
