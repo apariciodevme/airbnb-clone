@@ -50,7 +50,7 @@ const Header = ({ placeholder }) => {
 
   return (
     <header className="sticky top-0 z-50 grid justify-between grid-cols-2 p-4 shadow-md sm:grid-cols-3 bg-neutral-50">
-      {/* left nav */}
+      {/* left  nav */}
       <div
         className="relative items-center hidden h-8 my-auto cursor-pointer sm:inline-flex"
         onClick={() => router.push("/")}
