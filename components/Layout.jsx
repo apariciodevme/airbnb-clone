@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Layout({ children }) {
   return (
     <div className="overflow-x-hidden">
-      <Header />
+      <Header  />
       <main> {children}</main>
       <Footer/>
     </div>

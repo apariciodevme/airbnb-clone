@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/router";
+
 
 import {
   MagnifyingGlassIcon,
@@ -12,10 +14,14 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 
-const Header = () => {
+const Header = ({placeholder}) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [numberGuests, setNumberGuests] = useState(1);
+
+
+  const router = useRouter();
 
   const selectionRange = {
     startDate: startDate,
@@ -28,21 +34,32 @@ const Header = () => {
     setEndDate(ranges.selection.endDate);
   };
 
-  const [numberGuests, setNumberGuests] = useState(1);
 
   const resetInput = () => {
     setSearchInput("");
   };
 
+  const search = () => {
+    router.push({
+      pathname: '/search',
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        numberGuests,
+      }
+    })
+  }
+
   return (
-    <header className="sticky top-0 z-50 grid grid-cols-3 p-5 shadow-md md:px-10 bg-neutral-50">
+    <header className="sticky top-0 z-50 grid justify-between grid-cols-3 p-5 shadow-md bg-neutral-50">
       {/* left nav */}
-      <div className="relative flex items-center h-8 my-auto cursor-pointer ">
+      <div className="relative flex items-center h-8 my-auto cursor-pointer" onClick={() => router.push('/')}>
         <Image
           src={"https://links.papareact.com/qd3"}
           alt="airbnb logo image"
           fill
-          className="left-0 items-start object-contain "
+          className="object-contain "
         />
       </div>
 
@@ -98,7 +115,7 @@ const Header = () => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-rose-500">Search</button>
+            <button onClick={search} className="flex-grow text-rose-500">Search</button>
           </div>
         </div>
       )}
