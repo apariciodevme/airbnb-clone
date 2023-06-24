@@ -91,6 +91,15 @@ const Header = ({ placeholder }) => {
         <p className="hidden text-sm font-medium lg:inline-flex">
           Airbnb your home
         </p>
+        <div onClick={() => router.push("/")} className="transition duration-150 ease-out cursor-pointer active:scale-125">
+          <Image
+            src={"/airbnb.png"}
+            alt="airbnb logo image"
+            width={20}
+            height={20}
+            className=" sm:hidden"
+          />
+        </div>
         <GlobeAltIcon className="w-6 h-6 cursor-pointer " />
 
         <div className="flex items-center p-2 space-x-2 border-2 rounded-full cursor-pointer">
