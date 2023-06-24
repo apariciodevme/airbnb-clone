@@ -52,9 +52,9 @@ const Header = ({placeholder}) => {
   }
 
   return (
-    <header className="sticky top-0 z-50 grid justify-between grid-cols-3 p-5 shadow-md bg-neutral-50">
+    <header className="sticky top-0 z-50 grid justify-between grid-cols-2 p-4 shadow-md sm:grid-cols-3 bg-neutral-50">
       {/* left nav */}
-      <div className="relative flex items-center h-8 my-auto cursor-pointer" onClick={() => router.push('/')}>
+      <div className="relative items-center hidden h-8 my-auto cursor-pointer sm:inline-flex" onClick={() => router.push('/')}>
         <Image
           src={"https://links.papareact.com/qd3"}
           alt="airbnb logo image"
@@ -66,6 +66,8 @@ const Header = ({placeholder}) => {
       {/* Middle nav - Search bar */}
 
       <div className="flex items-center py-2 rounded-full md:border-2 md:shadow-sm ">
+      <MagnifyingGlassIcon className="w-5 h-5 text-gray-900 cursor-pointer md:hidden " />
+
         <input
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -74,13 +76,13 @@ const Header = ({placeholder}) => {
           placeholder="Start your search"
         />
 
-        <MagnifyingGlassIcon className="hidden w-8 h-8 p-2 text-white rounded-full cursor-pointer bg-rose-500 md:mx-2 md:inline-flex" />
+        <MagnifyingGlassIcon className="hidden w-8 h-8 p-2 text-white rounded-full cursor-pointer bg-rose-500 md:mx-2 lg:inline-flex" />
       </div>
 
       {/* right nav */}
 
-      <div className="flex items-center justify-end space-x-4 text-gray-700">
-        <p className="hidden md:inline-flex">Become a host</p>
+      <div className="flex items-center justify-end space-x-4 text-gray-900">
+        <p className="hidden text-sm font-medium lg:inline-flex">Airbnb your home</p>
         <GlobeAltIcon className="w-6 h-6 cursor-pointer " />
 
         <div className="flex items-center p-2 space-x-2 border-2 rounded-full cursor-pointer">
