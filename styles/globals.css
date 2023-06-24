@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+@tailwind components;
+
+
+@layer components {
+    .scaledButton {
+        @apply px-4 py-2 transition duration-150 ease-out border rounded-full cursor-pointer active:bg-gray-100 active:scale-95 hover:shadow-lg text-center;
+    }
+}

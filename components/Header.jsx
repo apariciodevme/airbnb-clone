@@ -8,7 +8,7 @@ import {
   MagnifyingGlassIcon,
   GlobeAltIcon,
   UserCircleIcon,
-  UserIcon,
+  UsersIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
 
@@ -26,6 +26,12 @@ const Header = () => {
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
+  };
+
+  const [numberGuests, setNumberGuests] = useState(1);
+
+  const resetInput = () => {
+    setSearchInput("");
   };
 
   return (
@@ -67,13 +73,33 @@ const Header = () => {
       </div>
 
       {searchInput && (
-        <div>
+        <div className="flex flex-col col-span-3 mx-auto ">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
             rangeColors={["#FD5B61"]}
             onChange={handleSelect}
           />
+
+          <div className="flex items-center mb-4 border-b">
+            <h2 className="flex-grow text-2xl font-semibold">
+              Number of guests
+            </h2>
+            <UsersIcon className="h-5" />
+            <input
+              onChange={(e) => setNumberGuests(e.target.value)}
+              value={numberGuests}
+              type="number"
+              min={1}
+              className="w-12 pl-2 text-lg outline-none text-rose-500"
+            />
+          </div>
+          <div className="flex">
+            <button onClick={resetInput} className="flex-grow text-gray-500">
+              Cancel
+            </button>
+            <button className="flex-grow text-rose-500">Search</button>
+          </div>
         </div>
       )}
     </header>
